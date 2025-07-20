@@ -16,7 +16,7 @@ class CoordsSerializer(WritableNestedModelSerializer):
         fields = '__all__'
 
 
-class LevelSerializers(WritableNestedModelSerializer):
+class LevelSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Level
         fields = '__all__'
@@ -31,7 +31,7 @@ class ImagesSerializer(WritableNestedModelSerializer):
 class PerevalSerializer(WritableNestedModelSerializer):
     user = UserSerializer()
     coords = CoordsSerializer()
-    level = LevelSerializers()
+    level = LevelSerializer()
     images = ImagesSerializer(many=True)
 
     class Meta:
