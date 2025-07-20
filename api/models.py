@@ -7,9 +7,9 @@ from api.resources import (CHOICES_LEVEL_DIFFICULTY_PEREVAL,
 
 class User(models.Model):
     email = models.EmailField()
-    fam = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    otc = models.CharField(max_length=100, blank=True, null=True)
+    fam = models.CharField()
+    name = models.CharField()
+    otc = models.CharField(blank=True, null=True)
     phone = models.CharField(max_length=12)
 
 
