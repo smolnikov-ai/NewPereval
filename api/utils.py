@@ -16,8 +16,10 @@ def check_unique_field(model_data, model, field):
             return False
     return True
 
+
 def check_update_user(data_user, user_dict):
     return data_user and user_dict != data_user
+
 
 def check_unique_field_response(field):
     if field == 'email':
@@ -35,6 +37,7 @@ def check_unique_field_response(field):
         status=status.HTTP_409_CONFLICT
     )
 
+
 def check_update_user_response():
     return Response(
         {
@@ -44,8 +47,10 @@ def check_update_user_response():
         status=status.HTTP_400_BAD_REQUEST
     )
 
+
 def check_pereval_status(instance_status):
     return instance_status != 'new'
+
 
 def check_pereval_status_not_new_response():
     return Response(
