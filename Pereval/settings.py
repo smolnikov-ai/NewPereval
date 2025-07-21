@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'Pereval.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fstr_data_base',
+        'NAME': 'Pereval',
         'USER': os.getenv('FSTR_DB_LOGIN'),
         'PASSWORD': os.getenv('FSTR_DB_PASS'),
         'HOST': os.getenv('FSTR_DB_HOST'),
