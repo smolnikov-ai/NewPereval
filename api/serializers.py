@@ -46,7 +46,7 @@ class PerevalSerializer(WritableNestedModelSerializer):
         level_data = validated_data.pop('level')
         images_data = validated_data.pop('images')
 
-        user = User.objects.get_or_create(**user_data)
+        user, _ = User.objects.get_or_create(**user_data)
         coords = Coords.objects.create(**coords_data)
         level = Level.objects.create(**level_data)
 

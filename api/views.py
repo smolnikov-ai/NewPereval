@@ -19,7 +19,7 @@ class LevelViewSet(ModelViewSet):
     serializer_class = LevelSerializer
 
 
-class ImageViewSet(ModelViewSet):
+class ImagesViewSet(ModelViewSet):
     queryset = Images.objects.all()
     serializer_class = ImagesSerializer
 
