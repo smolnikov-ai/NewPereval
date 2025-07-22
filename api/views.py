@@ -1,4 +1,5 @@
 from django.db import DatabaseError
+from django.forms import model_to_dict
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -72,3 +73,25 @@ class PerevalViewSet(ModelViewSet):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
+
+    def update(self, request, *args, **kwargs):
+        pereval = self.get_object()
+        user_dict = model_to_dict(pereval.user)
+        user_dict.pop('pk')
+        serializer = self.get_serializer(pereval, data=request.data, partial=True)
+        if check_pereval_status(pereval.status):
+            return check_pereval_status_not_new_response()
+        if check_update_user(request.data.get('user'), user_dict):
+            return check_update_user_response()
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(
+            {
+                'state': 1,
+                'message': 'The record was successfully updated.',
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
