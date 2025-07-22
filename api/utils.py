@@ -4,13 +4,13 @@ from rest_framework.response import Response
 
 
 def check_unique_field(model_data, model, field):
-    model_data = model_data.get.copy()
+    model_data = model_data.copy()
     model_data_field = model_data.pop(field)
     filter_kwargs = {field: model_data_field}
     model_object = model.objects.filter(**filter_kwargs).first()
     if model_object:
         model_dict = model_to_dict(model_object)
-        model_dict.pop('pk')
+        model_dict.pop('id')
         model_dict.pop(field)
         if model_dict != model_data:
             return False

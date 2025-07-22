@@ -77,7 +77,7 @@ class PerevalViewSet(ModelViewSet):
     def update(self, request, *args, **kwargs):
         pereval = self.get_object()
         user_dict = model_to_dict(pereval.user)
-        user_dict.pop('pk')
+        user_dict.pop('id')
         serializer = self.get_serializer(pereval, data=request.data, partial=True)
         if check_pereval_status(pereval.status):
             return check_pereval_status_not_new_response()
