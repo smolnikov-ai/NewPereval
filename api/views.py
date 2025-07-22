@@ -5,8 +5,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from api.models import User, Images, Coords, Level, Pereval
 from api.serializers import UserSerializer, ImagesSerializer, CoordsSerializer, LevelSerializer, PerevalSerializer
-def check_update_Wuser_response():
-def check_Wpereval_status(instance_status):
+
 from api.utils import (check_unique_field, check_update_user, check_unique_field_response, check_update_user_response,
                        check_pereval_status, check_pereval_status_not_new_response, )
 
