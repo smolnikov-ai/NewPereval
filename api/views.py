@@ -3,12 +3,13 @@ from django.forms import model_to_dict
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from drf_yasg.utils import swagger_auto_schema
 
 from api.models import User, Images, Coords, Level, Pereval
 from api.serializers import UserSerializer, ImagesSerializer, CoordsSerializer, LevelSerializer, PerevalSerializer
-
 from api.utils import (check_unique_field, check_update_user, check_unique_field_response, check_update_user_response,
                        check_pereval_status, check_pereval_status_not_new_response, )
+# from Pereval.yasg import user_email, example_pereval
 
 
 class UserViewSet(ModelViewSet):
@@ -37,6 +38,7 @@ class PerevalViewSet(ModelViewSet):
     filterset_fields = ['user__email', ]
     http_method_names = ['get', 'post', 'patch', ]
 
+    # @swagger_auto_schema(request_body=example_pereval)
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         data_user = request.data.get('user')
@@ -74,6 +76,7 @@ class PerevalViewSet(ModelViewSet):
             )
 
 
+    # @swagger_auto_schema(request_body=example_pereval)
     def update(self, request, *args, **kwargs):
         pereval = self.get_object()
         user_dict = model_to_dict(pereval.user)
@@ -93,5 +96,6 @@ class PerevalViewSet(ModelViewSet):
             status=status.HTTP_200_OK,
         )
 
+    # @swagger_auto_schema(manual_parameters=[user_email],)
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
