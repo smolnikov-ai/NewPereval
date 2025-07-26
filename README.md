@@ -25,6 +25,7 @@ API предоставляет возможность:
 ```bash
 git clone <url-репозитория>
 cd pereval
+```
 
 ### 2. Создание виртуального окружения
 ```bash
@@ -32,31 +33,38 @@ python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # или
 venv\Scripts\activate     # Windows
+```
 
 ### 3. Установка зависимостей
 ```bash
 pip install -r requirements.txt
+```
 
 ### 4. Настройка переменных окружения
+```
 Создайте файл .env в корне проекта:
 FSTR_DB_HOST=localhost
 FSTR_DB_PORT=5432
 FSTR_DB_LOGIN=your_username
 FSTR_DB_PASS=your_password
+```
 
 ### 5. Настройка базы данных
 ```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
 ### 6. Запуск сервера разработки
 ```bash
 python manage.py runserver
+```
 
 ### Тестирование
 Запуск тестов:
 ```bash
 python manage.py test
+```
 
 ### Модели данных
 User (Пользователь)
@@ -90,13 +98,18 @@ title - Название изображения
 pereval - Связь с перевалом
 
 ### Получение списка всех перевалов
+```
 GET /api/pereval/
+```
 
 ### Создание нового перевала
+```
 POST /api/pereval/
 Content-Type: application/json
+```
 
 ### Пример запроса:
+```
 {
     "user": {
         "email": "example@example.com",
@@ -131,16 +144,22 @@ Content-Type: application/json
         }
     ]
 }
+```
 
 ### Получение информации о конкретном перевале
+```
 GET /api/pereval/{id}/
+```
 
 ### Обновление информации о перевале
+```
 PATCH /api/pereval/{id}/
 Content-Type: application/json
 Важно: Редактирование возможно только для перевалов со статусом "new"
+```
 
 ### Статусы модерации
+```
 new - Новый (по умолчанию)
 pending - В работе
 accepted - Принят
@@ -157,9 +176,11 @@ rejected - Отклонен
 Редактирование - возможно только для перевалов в статусе "new"
 Изображения - поддерживаются множественные загрузки
 Валидация - все поля проходят строгую валидацию
+```
 
 ### Автор
+```
 Smolnikov Anton Ivanovich - smolmikov-ai@mail.ru
-
+```
 
 
