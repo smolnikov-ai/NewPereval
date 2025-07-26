@@ -36,7 +36,7 @@ class PerevalViewSet(ModelViewSet):
     queryset = Pereval.objects.all()
     serializer_class = PerevalSerializer
     filterset_fields = ['user__email', ]
-    http_method_names = ['get', 'post', 'patch', ]
+    http_method_names = ['get', 'post', 'patch', 'put', 'delete', 'head', 'options', ]
 
     # @swagger_auto_schema(request_body=example_pereval)
     def create(self, request, *args, **kwargs):
