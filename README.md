@@ -23,7 +23,7 @@ API предоставляет возможность:
 
 ### 1. Клонирование репозитория
 ```bash
-git clone <url-репозитория>
+git clone https://github.com/smolnikov-ai/NewPereval.git
 cd pereval
 ```
 
@@ -43,6 +43,7 @@ pip install -r requirements.txt
 ### 4. Настройка переменных окружения
 ```
 Создайте файл .env в корне проекта:
+SECRET_KEY=your_secret_key_django
 FSTR_DB_HOST=localhost
 FSTR_DB_PORT=5432
 FSTR_DB_LOGIN=your_username
@@ -67,6 +68,7 @@ python manage.py test
 ```
 
 ### Модели данных
+```
 User (Пользователь)
 email - Email пользователя
 fam - Фамилия
@@ -96,6 +98,7 @@ Images (Изображения)
 data - URL изображения
 title - Название изображения
 pereval - Связь с перевалом
+```
 
 ### Получение списка всех перевалов
 ```
