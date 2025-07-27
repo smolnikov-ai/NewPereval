@@ -140,4 +140,15 @@ REST_FRAMEWORK = {
     ]
 }
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Basic': {
+            'type': 'basic'
+        }
+    },
+    'USE_SESSION_AUTH': False,
+}
 
+REDOC_SETTINGS = {
+    'LAZY_RENDERING': False,
+}
