@@ -17,15 +17,31 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 from api.views import PerevalViewSet
 from .yasg import urlpatterns as doc_urls
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Pereval API",
+      default_version='v1',
+      description="REST API для мобильного приложения туристов ФСТР",
+      contact=openapi.Contact(email="smolnikov-ai.dev@yandex.ru"),
+      license=openapi.License(name="MIT License"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
 
 router = DefaultRouter()
 router.register(r'pereval', PerevalViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+
 ]
 
 urlpatterns += doc_urls

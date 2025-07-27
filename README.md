@@ -202,7 +202,7 @@ rejected - Отклонен
 
 ### Автор
 ```
-Smolnikov Anton Ivanovich - smolmikov-ai@mail.ru
+Smolnikov Anton Ivanovich - smolnikov-ai.dev@yandex.ru
 ```
 
 
